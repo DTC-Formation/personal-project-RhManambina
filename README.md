@@ -1,16 +1,19 @@
-# projet
+# E-Hianatra
 
-Application mobile DTC
+Application pour les nouveaux bacheliers
 
-## Getting Started
+## Déscription
+E-Hianatra est une application pour faciliter la recherche d'université et la filière correspondant à la parsonnalité de chaque individu .
 
-This project is a starting point for a Flutter application.
+Il y a des quiz dans cette application pour tester la personnalité de chacun .
+NB:La personnalité se divise en 6 comme : realiste , inquisitrice,artistique, social ,entreprennante et conventionnel . 
 
-A few resources to get you started if this is your first Flutter project:
+Il y a aussi des listes des universités et chaque université a un compte personnel , nous pouvons voir leur publication et leur à propos dans leur propre compte ou dans la page d'accueil .
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Vous pouvez faire des recherches à l'aide des filières car il y a des universités qui n'ont pas la filière que vous cherchez.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Pourquoi E-Hianatra ?
+
+Pour eviter les mauvaises choix des nouveaux bacheliers 
+
+
