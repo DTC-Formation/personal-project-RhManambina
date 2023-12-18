@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
       length: menu.length,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 244, 245, 244),
+          backgroundColor: const Color.fromARGB(255, 244, 245, 244),
           title: const Text(
             'E-hianatra',
             style: TextStyle(
@@ -100,7 +100,7 @@ class HomePage extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            ListUniversite(),
+            const ListUniversite(),
             const SizedBox(
               height: 30,
             ),

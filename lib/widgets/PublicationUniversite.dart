@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: non_constant_identifier_names
 Widget FriendPost(
     {proPic, proName, dateAndLocation, comments, like, post, caption}) {
   return Padding(
@@ -102,7 +103,7 @@ Widget FriendPost(
                   height: 400.0,
                   child: Column(
                     children: <Widget>[
-                      Container(
+                      SizedBox(
                         height: 20.0,
                         width: 415.0,
                         // color: Colors.blue,
@@ -199,7 +200,7 @@ Widget FriendPost(
                         ]),
                       ),
                       //Commentaire
-                      Container(
+                      SizedBox(
                         width: 137.0,
                         height: 30.0,
                         child: Row(
@@ -218,7 +219,7 @@ Widget FriendPost(
                         ),
                       ),
                       //Partage
-                      Container(
+                      SizedBox(
                         width: 137.0,
                         height: 30.0,
                         child: Row(

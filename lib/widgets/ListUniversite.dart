@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ListUniversite extends StatelessWidget {
+  const ListUniversite({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,7 +31,7 @@ class ListUniversite extends StatelessWidget {
               for (int i = 1; i <= 5; i++)
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, "moviePage");
+                    Navigator.pushNamed(context, "listUniversite");
                   },
                   child: Container(
                     width: 190,

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:projet/widgets/CustomNavBar.dart';
-import 'package:projet/widgets/DetailPageBouton.dart';
-// import 'package:projet/widgets/PublicationUniversite.dart';
+import 'package:projet/widgets/Footerdetailuniversite.dart';
+import 'package:projet/widgets/PublicationUniversite.dart';
 
 class MoviePage extends StatelessWidget {
-  MoviePage({super.key});
+  const MoviePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,109 +14,94 @@ class MoviePage extends StatelessWidget {
           'Institut Superieur Polytechnique de Mada',
           style: TextStyle(color: Colors.black),
         ),
+        iconTheme: const IconThemeData.fallback(),
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.search,
+                color: Colors.black,
+              )),
+        ],
       ),
 
-      body: Stack(children: [
-        Image.asset(
-          "assets/pdcispm.png",
-          height: 280,
-          width: double.infinity,
-          fit: BoxFit.cover,
-        ),
-        SingleChildScrollView(
-          child: SafeArea(
-              child: Column(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Icon(
-                        Icons.arrow_back,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                    ),
-                  ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            //PDP et PDC
+            Stack(
+              clipBehavior: Clip.none,
+              alignment: Alignment.centerLeft,
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(bottom: 70),
+                  child: photocouverture(),
                 ),
-              ),
-              const SizedBox(
-                height: 120,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                      child: Image.asset(
-                        "assets/logoispm.jpg",
-                        height: 150,
-                        width: 150,
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(right: 50, top: 70),
-                      height: 60,
-                      width: 60,
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              //Nom an'ilay Université
-              const Text("Institut Supérieur Polytéchnique de Madagascar",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold)),
-              const SizedBox(
-                height: 10,
-              ),
+                Positioned(
+                  top: 130,
+                  child: photoprofile(),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              'Institut Supérieur Polytéchnique de Madagascar',
+              style: TextStyle(fontSize: 25, color: Colors.black),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
 
-              // FriendPost(
-              //     proPic: 'assets/logoispm.jpg',
-              //     proName: 'Institut Supérieur Polytéchnique de Madagascar ',
-              //     dateAndLocation: 'yesterday',
-              //     comments: 'Commentaire 1K',
-              //     like: '20K',
-              //     post: 'assets/image1.jpg',
-              //     caption: 'Inscription ouverte'),
-              // FriendPost(
-              //     proPic: 'assets/logoispm.jpg',
-              //     proName: 'Institut Supérieur Polytéchnique de Madagascar ',
-              //     dateAndLocation: 'yesterday',
-              //     comments: 'Commentaire 1K',
-              //     like: '20K',
-              //     post: 'assets/image1.jpg',
-              //     caption: 'Inscription ouverte'),
-
-              MoviePageButtons(),
-            ],
-          )),
+            FriendPost(
+                proPic: 'assets/logoispm.jpg',
+                proName: 'Institut Supérieur Polytéchnique de Madagascar ',
+                dateAndLocation: 'yesterday',
+                comments: 'Commentaire 1K',
+                like: '20K',
+                post: 'assets/pdcispm.png',
+                caption: 'Inscription ouverte'),
+            FriendPost(
+                proPic: 'assets/logoispm.jpg',
+                proName: 'Institut Supérieur Polytéchnique de Madagascar ',
+                dateAndLocation: 'yesterday',
+                comments: 'Commentaire 1K',
+                like: '20K',
+                post: 'assets/pdcispm.png',
+                caption: 'Inscription ouverte'),
+          ],
         ),
-      ]),
-      // appBar: AppBar(
-      //   bottom: TabBar(
-      //       unselectedLabelColor: Colors.black54,
-      //       indicatorColor: Colors.blue,
-      //       labelColor: Colors.blue,
-      //       tabs: mytabs()),
-      // ),
-      bottomSheet: CustomNavBar(),
-      //  bottomNavigationBar: CustomNavBar(),
+      ),
+
+      // bottomSheet: const CustomNavBar(),
+      bottomNavigationBar: const Footerdetailuniversite(),
     );
   }
 }
+
+//bouton kely
+
+//Photo de couverture
+Widget photocouverture() => Container(
+      color: Colors.grey,
+      child: Image.asset(
+        'assets/pdcispm.png',
+        width: double.infinity,
+        height: 200,
+        fit: BoxFit.cover,
+      ),
+    );
+//Photo de profile
+Widget photoprofile() => Container(
+      width: 150,
+      height: 150,
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(100),
+      ),
+      child: Image.asset(
+        'assets/logoispm.jpg',
+        fit: BoxFit.cover,
+      ),
+    );
