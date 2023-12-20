@@ -21,7 +21,7 @@ class Footerdetailuniversite extends StatelessWidget {
           InkWell(
             onTap: () {
               //Navigate to Home Page
-              Navigator.pushNamed(context, "/");
+              Navigator.pushNamed(context, "homepage");
             },
             child: const Column(
               children: [
