@@ -47,10 +47,22 @@ class Aproposuniversite extends StatelessWidget {
             ),
             const Center(
               child: Text(
-                'A propos ',
+                'A propos',
                 style: TextStyle(fontSize: 30),
               ),
             ),
+            const  SizedBox(height: 20,),
+            const  Card(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                    Text('A propos de nous'),
+                  Text('A propos de nous A propos de nous A propos de nous'),
+
+                ],
+              ),
+            )
           ],
         )),
       ),

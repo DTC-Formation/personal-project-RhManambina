@@ -52,7 +52,21 @@ class FiliereUniversite extends StatelessWidget {
                 fontSize: 30,
               ),
             )),
-            Padding(
+            Card(
+
+              child:
+              Container(
+                child: const Row(
+                  children: [
+                    Text('Bonjour'),
+                    Text('blablabla'),
+                  ],
+                ),
+              
+              ),
+
+            )
+            /*Padding(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
               child: Column(children: [
                 for (int i = 1; i <= 5; i++)
@@ -95,7 +109,7 @@ class FiliereUniversite extends StatelessWidget {
                     ]),
                   )
               ]),
-            )
+            )*/
           ],
         )),
       ),

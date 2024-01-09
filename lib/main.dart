@@ -13,6 +13,10 @@ import 'package:projet/services/listmail.dart';
 import 'package:projet/services/sharedpref_authentification.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'Api/screens/home_screen.dart';
+import 'Pages/BackPage.dart';
+import 'apprendreapi.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -43,9 +47,13 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+        theme: ThemeData(scaffoldBackgroundColor: Colors.white,),
         routes: {
+          //"/":(context) =>const TestApi(),
+          //"homepage":(context) =>const HomeScreen(),
+          //"homepage":(context) =>TestApi(),
           "homepage": (context) => HomePage(),
+          //"homepage": (context) =>const BackPage(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
           "/": (context) => const Splash(),

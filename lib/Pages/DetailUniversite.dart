@@ -69,7 +69,7 @@ class MoviePage extends StatelessWidget {
                 comments: 'Commentaire 1K',
                 like: '20K',
                 post: 'assets/pdcispm.png',
-                caption: 'Inscription ouverte'),
+                caption: 'Inscription ouverte'), 
           ],
         ),
       ),

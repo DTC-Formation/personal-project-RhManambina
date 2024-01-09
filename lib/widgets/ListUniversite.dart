@@ -14,7 +14,7 @@ class ListUniversite extends StatelessWidget {
             Text(
               "Liste des Universités",
               style: TextStyle(
-                color: Colors.green,
+                color: Colors.blue,
                 fontSize: 35,
                 fontWeight: FontWeight.w500,
               ),
@@ -38,7 +38,7 @@ class ListUniversite extends StatelessWidget {
                     height: 260,
                     margin: const EdgeInsets.only(left: 10),
                     decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 228, 236, 227),
+                        color: Colors.white70,
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: [
                           BoxShadow(
@@ -84,7 +84,7 @@ class ListUniversite extends StatelessWidget {
                               Text(
                                 "Ambatomaro/Antsobolo",
                                 style: TextStyle(
-                                  color: Colors.black38,
+                                  color: Colors.black87,
                                 ),
                               ),
                               SizedBox(

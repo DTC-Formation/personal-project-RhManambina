@@ -45,14 +45,19 @@ class HistoriqueUniversite extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const Center(
-              child: Text(
-                'Historique ',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              ),
-            )
+            Center(
+              child: RichText(
+                  text: TextSpan(
+                    style: DefaultTextStyle.of(context).style,
+                  children:const <TextSpan> [
+                    TextSpan(text: 'hello'),
+                    TextSpan(text: 'Hi'),
+                    TextSpan(text: 'Bye'),
+
+                  ]
+              ))
+            ),
+
           ],
         )),
       ),
