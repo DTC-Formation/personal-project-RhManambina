@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projet/Pages/DetailUniversite.dart';
-
+import 'package:flutter_svg/svg.dart';
 class Aproposuniversite extends StatelessWidget {
   const Aproposuniversite({super.key});
 
@@ -62,7 +62,32 @@ class Aproposuniversite extends StatelessWidget {
 
                 ],
               ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 150,
+                  height: 150,
+
+                  child: Card(
+                    child: Image.asset('assets/image1.jpg',height: 120,width: 120,),
+
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 150,
+
+                  child: Card(
+                    child: Image.asset('assets/image2.jpg',height: 120,width: 120,),
+
+                  ),
+                ),
+              ],
             )
+           
           ],
         )),
       ),

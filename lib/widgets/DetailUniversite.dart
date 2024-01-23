@@ -6,10 +6,10 @@ class DetailPadeUniversite extends StatefulWidget {
   const DetailPadeUniversite({super.key});
 
   @override
-  State<DetailPadeUniversite> createState() => _MoviePageButtonsState();
+  State<DetailPadeUniversite> createState() => _DetailPadeUniversiteState();
 }
 
-class _MoviePageButtonsState extends State<DetailPadeUniversite> {
+class _DetailPadeUniversiteState extends State<DetailPadeUniversite> {
   @override
   Widget build(BuildContext context) {
     return Padding(

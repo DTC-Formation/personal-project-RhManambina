@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:projet/Firebase/firebase_auth.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -10,23 +11,10 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final TextEditingController _usernameController = TextEditingController();
+  final FirebaseAuthService _auth = FirebaseAuthService();
+
+  final TextEditingController _mailcontroller = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
-  Future<void> _login() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? storedUsername = prefs.getString('username');
-    String? storedPassword = prefs.getString('password');
-
-    if (_usernameController.text == storedUsername &&
-        _passwordController.text == storedPassword) {
-      // Authentification réussie
-      _showMessage('Authentification réussie');
-    } else {
-      // Échec de l'authentification
-      _showMessage('Nom d\'utilisateur ou mot de passe incorrect');
-    }
-  }
 
   void _showMessage(String message) {
     showDialog(
@@ -127,7 +115,7 @@ class _LoginState extends State<Login> {
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(40, 5, 20, 10),
                       child: TextField(
-                        controller: _usernameController,
+                        controller: _mailcontroller,
                         decoration: const InputDecoration(
                           border: InputBorder.none,
                           // label: const Text("Nom d\' utilisateur "),
@@ -178,28 +166,25 @@ class _LoginState extends State<Login> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    width: 400,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, "homepage");
-                        },
-                        child: const Padding(
+                  GestureDetector(
+                    onTap: _signIn,
+                    child: Container(
+                      width: double.infinity,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Center(
+                        child: Padding(
                           padding: EdgeInsets.fromLTRB(30, 10, 10, 10),
-                          child: Center(
-                              child: Text(
-                            'Se connecter',
+                          child: Text(
+                            ' Se connecter',
                             style: TextStyle(
-                              fontSize: 30,
-                            ),
-                          )),
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 30),
+                          ),
                         ),
                       ),
                     ),
@@ -233,5 +218,20 @@ class _LoginState extends State<Login> {
         ],
       ),
     );
+  }
+
+  void _signIn() async {
+    String email = _mailcontroller.text;
+    String password = _passwordController.text;
+
+    User? user = await _auth.signInWithEmailAndPassword(email, password);
+
+    if (user != null) {
+      print('User is successfully signedIn');
+      // ignore: use_build_context_synchronously
+      Navigator.popAndPushNamed(context, 'homepage');
+    } else {
+      print('some error heppend');
+    }
   }
 }

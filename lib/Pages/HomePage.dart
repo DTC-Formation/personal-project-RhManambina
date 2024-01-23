@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
-import '../AdminPage/adminPage.dart';
+//import '../AdminPage/adminPage.dart';
 import '../Api/screens/home_screen.dart';
-import '../Quiz/screen/accueil.dart';
+//import '../Quiz/screen/accueil.dart';
+import '../apprendreapi.dart';
 import 'accueilpagetabbar.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
   List<Menu> menu = [
     Menu(const Icon(Icons.home)),
-    Menu(const Icon(Icons.menu))
+    Menu(const Icon(Icons.person)),
+    Menu(const Icon(Icons.add)),
   ];
 
   HomePage({super.key});
@@ -68,13 +70,13 @@ class HomePage extends StatelessWidget {
               tabs: mytabs()),
         ),
         body: const TabBarView(
-          children:<Widget> [
-             AccueilPage(),
+          children: <Widget>[
+            AccueilPage(),
             //Quiz
             //Accueil(),
+            TestApi(),
             HomeScreen(),
           ],
-
         ),
         // bottomNavigationBar: const CustomNavBar(),
       ),

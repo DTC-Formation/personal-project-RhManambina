@@ -11,13 +11,17 @@ class ListUniversite extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 10),
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Text(
-              "Liste des Universités",
-              style: TextStyle(
-                color: Colors.blue,
-                fontSize: 35,
-                fontWeight: FontWeight.w500,
-              ),
+            Column(
+              children: [
+                Text(
+                  "Bienvenue sur ",
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 35,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
             ),
           ]),
         ),

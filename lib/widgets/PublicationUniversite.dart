@@ -54,7 +54,7 @@ Widget FriendPost(
                         children: <Widget>[
                           Row(
                             children: <Widget>[
-                              //Mametaka ny anaran'ilay olona
+                              //Mametaka ny anaran'ilay sekoly
                               SizedBox(
                                 width: 260.0,
                                 height: 20.0,

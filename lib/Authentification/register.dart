@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:projet/services/sharedpref_authentification.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:projet/Firebase/firebase_auth.dart';
+
 // import 'package:mini/login.dart';
 
 class Register extends StatefulWidget {
@@ -24,6 +26,8 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final FirebaseAuthService _auth = FirebaseAuthService();
+
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _numberphoneController = TextEditingController();
   final TextEditingController _mailcontroller = TextEditingController();
@@ -32,17 +36,6 @@ class _RegisterState extends State<Register> {
       TextEditingController();
 
   TextEditingController controller = TextEditingController();
-
-  @override
-  void initState() {
-    controller = TextEditingController(text: widget.nom);
-    controller = TextEditingController(text: widget.numerophone);
-    controller = TextEditingController(text: widget.mail);
-    controller = TextEditingController(text: widget.password);
-    controller = TextEditingController(text: widget.confirmpassword);
-    // TODO: implement initState
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -254,41 +247,24 @@ class _RegisterState extends State<Register> {
                     ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
-                  Container(
-                    width: 400,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(),
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          final sharedPreferences =
-                              await SharedPreferences.getInstance();
-                          SharedPreferencesService(sharedPreferences)
-                              .addTodo(_usernameController.text);
-                          SharedPreferencesService(sharedPreferences)
-                              .addTodo(_numberphoneController.text);
-                          SharedPreferencesService(sharedPreferences)
-                              .addTodo(_mailcontroller.text);
-                          SharedPreferencesService(sharedPreferences)
-                              .addTodo(_passwordController.text);
-                          // ignore: use_build_context_synchronously
-                          Navigator.of(context).pushNamed("/login");
-                        },
-                        child: const Padding(
-                          padding: EdgeInsets.fromLTRB(30, 10, 10, 10),
-                          child: Center(
-                              child: Text(
-                            'Register',
-                            style: TextStyle(
-                              fontSize: 30,
-                            ),
-                          )),
+                  GestureDetector(
+                    onTap: _register,
+                    child: Container(
+                      width: double.infinity,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          ' Sign Up',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 30),
                         ),
                       ),
                     ),
@@ -311,9 +287,23 @@ class _RegisterState extends State<Register> {
                             Navigator.of(context).pushNamed("/login");
                           }),
                   ])),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  // const SizedBox(
+                  //   height: 20,
+                  // ),
+                  // ElevatedButton(
+                  //     onPressed: () {
+                  //       //Firestore
+                  //       CollectionReference collRef = FirebaseFirestore.instance
+                  //           .collection('dtcregister');
+                  //       collRef.add({
+                  //         'name': _usernameController.text,
+                  //         'phone': _numberphoneController.text,
+                  //         'email': _mailcontroller.text,
+                  //         'password': _passwordController,
+                  //         'confirm password': _confirmpasswordController.text,
+                  //       });
+                  //     },
+                  //     child: const Text('Add ekl')),
                 ],
               ),
             ),
@@ -321,5 +311,21 @@ class _RegisterState extends State<Register> {
         ],
       ),
     ));
+  }
+
+  void _register() async {
+    String email = _mailcontroller.text;
+    String password = _passwordController.text;
+    //Authentication
+
+    User? user = await _auth.signUpWithEmailAndPassword(email, password);
+
+    if (user != null) {
+      print('User is successfully created');
+      // ignore: use_build_context_synchronously
+      Navigator.popAndPushNamed(context, 'pageregisterlogin');
+    } else {
+      print('some error heppend');
+    }
   }
 }
