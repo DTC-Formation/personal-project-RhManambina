@@ -38,6 +38,7 @@ Widget FriendPost(
                                         color: Colors.brown,
                                         style: BorderStyle.solid,
                                       ),
+                                      //Pdp @ilay publication an'olona
                                       image: DecorationImage(
                                           image: AssetImage(proPic),
                                           fit: BoxFit.cover

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projet/Firebase/cread_realtime_database/real_time_crud.dart';
 
 //import '../AdminPage/adminPage.dart';
 import '../Api/screens/home_screen.dart';
@@ -12,6 +13,7 @@ class HomePage extends StatelessWidget {
     Menu(const Icon(Icons.home)),
     Menu(const Icon(Icons.person)),
     Menu(const Icon(Icons.add)),
+    Menu(const Icon(Icons.abc_rounded)),
   ];
 
   HomePage({super.key});
@@ -76,6 +78,7 @@ class HomePage extends StatelessWidget {
             //Accueil(),
             TestApi(),
             HomeScreen(),
+            RealTimeCrudeDatabase(),
           ],
         ),
         // bottomNavigationBar: const CustomNavBar(),

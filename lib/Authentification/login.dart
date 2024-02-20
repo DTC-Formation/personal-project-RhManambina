@@ -71,7 +71,7 @@ class _LoginState extends State<Login> {
                 ),
                 const Text(
                   "Login",
-                  style: TextStyle(fontSize: 50, color: Colors.white),
+                  style: TextStyle(fontSize: 30, color: Colors.white),
                 )
               ],
             ),

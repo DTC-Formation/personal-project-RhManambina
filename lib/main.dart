@@ -3,6 +3,9 @@ import 'package:projet/Authentification/login.dart';
 import 'package:projet/Authentification/pageentreloginetregister.dart';
 import 'package:projet/Authentification/register.dart';
 import 'package:projet/Authentification/splash.dart';
+import 'package:projet/Firebase/cread_realtime_database/real_time_crud.dart';
+//import 'package:projet/Authentification/splash.dart';
+//import 'package:projet/Firebase/cread_realtime_database/real_time_crud.dart';
 import 'package:projet/Firebase/firebaseinitial.dart';
 import 'package:projet/Pages/Aproposuniversite.dart';
 import 'package:projet/Pages/FiliereUniversite.dart';
@@ -47,6 +50,7 @@ class _MyAppState extends State<MyApp> {
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
           "/": (context) => const Splash(),
+          //"/": (context) => const RealTimeCrudeDatabase(),
 
           // "/": (context) => AuthScreen(),
           "aproposuniversitePage": (context) => const Aproposuniversite(),
